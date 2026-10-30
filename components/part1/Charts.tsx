@@ -2,8 +2,9 @@
 export const ATTEND = [66, 66, 64, 62, 57, 57, 63, 55];
 export const LABELS = ["Same day", "1", "2", "3", "4", "5", "6", "7"];
 
-const GREEN = "#1f9d6b";
-const RED = "#d64545";
+const GREEN = "#1b84a3";
+const RED = "#f26a21";
+const SOFT = "#f8b684";
 const INK = "#292622";
 const ORANGE = "#f15d22";
 
@@ -30,9 +31,9 @@ export function Chart1() {
           return (
             <g key={i}>
               <rect x={px(i) - bw / 2} y={py(v)} width={bw} height={B - py(v)} fill={GREEN} rx={4} />
-              <rect x={px(i) - bw / 2} y={py(100)} width={bw} height={py(v) - py(100) - 2} fill={RED} opacity={hot ? 1 : 0.6} rx={4} />
+              <rect x={px(i) - bw / 2} y={py(100)} width={bw} height={py(v) - py(100) - 2} fill={hot ? RED : SOFT} rx={4} />
               <text className="v" x={px(i)} y={py(v) + 22} textAnchor="middle" style={{ fill: "#fff" }}>{v}</text>
-              <text className="v" x={px(i)} y={py(100) + 22} textAnchor="middle" style={{ fill: "#fff" }}>{100 - v}</text>
+              <text className="v" x={px(i)} y={py(100) + 22} textAnchor="middle" style={{ fill: hot ? "#fff" : INK }}>{100 - v}</text>
               <text x={px(i)} y={B + 20} textAnchor="middle">{LABELS[i]}</text>
             </g>
           );
@@ -70,7 +71,7 @@ export function Chart2() {
           </g>
         ))}
         <line x1={L} x2={R} y1={py(65)} y2={py(65)} stroke="#746558" strokeDasharray="4 5" />
-        <rect x={px(4) - 30} y={T} width={px(5) - px(4) + 60} height={B - T} fill="#fde4e4" opacity={0.8} rx={8} />
+        <rect x={px(4) - 30} y={T} width={px(5) - px(4) + 60} height={B - T} fill="#fff0da" rx={8} />
         <polyline points={pts} fill="none" stroke={INK} strokeWidth={3} strokeLinejoin="round" strokeLinecap="round" />
         {ATTEND.map((v, i) => (
           <g key={i}>
@@ -89,21 +90,22 @@ export function Chart2() {
       </svg>
       <div className="legend">
         <span><i style={{ background: "transparent", borderTop: "2px dashed #746558", borderRadius: 0, height: 0, width: 16, verticalAlign: 4 }} />65% benchmark</span>
-        <span><i style={{ background: "#fde4e4", border: "1px solid #d64545" }} />Days 4 and 5, the biggest single move</span>
+        <span><i style={{ background: "#fff0da", border: "1px solid #f26a21" }} />Days 4 and 5, the biggest single move</span>
       </div>
     </div>
   );
 }
 
-// The 66 / 34 split for same-day bookings, as a ring.
+// The 66 / 34 split for same-day bookings, as a ring. The label is HTML so it stays readable.
 export function Donut() {
   const C = 2 * Math.PI * 40;
   return (
-    <svg viewBox="0 0 120 120" role="img" aria-label="Same-day bookings: 66% attend, 34% do not" style={{ width: "100%", height: "auto" }}>
-      <circle cx="60" cy="60" r="40" fill="none" stroke={RED} strokeWidth="16" />
-      <circle cx="60" cy="60" r="40" fill="none" stroke={GREEN} strokeWidth="16" strokeDasharray={`${C * 0.66} ${C}`} transform="rotate(-90 60 60)" strokeLinecap="butt" />
-      <text x="60" y="58" textAnchor="middle" style={{ fontSize: 22, fontWeight: 700, fill: INK, fontFamily: "var(--font)" }}>34%</text>
-      <text x="60" y="74" textAnchor="middle" style={{ fontSize: 9.5, fontWeight: 700, fill: "#746558", fontFamily: "var(--font)" }}>no-show</text>
-    </svg>
+    <div className="donut" role="img" aria-label="Same-day bookings: 66% attend, 34% do not">
+      <svg viewBox="0 0 120 120">
+        <circle cx="60" cy="60" r="40" fill="none" stroke={RED} strokeWidth="16" />
+        <circle cx="60" cy="60" r="40" fill="none" stroke={GREEN} strokeWidth="16" strokeDasharray={`${C * 0.66} ${C}`} transform="rotate(-90 60 60)" />
+      </svg>
+      <div className="donut-label"><b>34%</b><span>no-show</span></div>
+    </div>
   );
 }

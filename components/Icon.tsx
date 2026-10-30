@@ -22,7 +22,7 @@ const P: Record<string, string> = {
 };
 
 export function Icon({ name, size = 36, tone = "orange" }: { name: keyof typeof P | string; size?: number; tone?: "orange" | "green" | "blue" | "red" | "gold" }) {
-  const c = { orange: ["#fdeee8", "#c04a1b"], green: ["#dcf5ea", "#0b6e49"], blue: ["#eef4ff", "#2c5bc2"], red: ["#fde4e4", "#a52d2d"], gold: ["#fff0c9", "#8a5a00"] }[tone];
+  const c = { orange: ["#ffefd9", "#c04a1b"], green: ["#dff1f6", "#12677f"], blue: ["#e8f0ff", "#2c5bc2"], red: ["#ffe3cc", "#b4480f"], gold: ["#fff3c9", "#8a5a00"] }[tone];
   return (
     <span className="icon" style={{ width: size, height: size, background: c[0] }} aria-hidden>
       <svg viewBox="0 0 24 24" width={size * 0.58} height={size * 0.58} fill="none" stroke={c[1]} strokeWidth={1.9} strokeLinecap="round" strokeLinejoin="round">

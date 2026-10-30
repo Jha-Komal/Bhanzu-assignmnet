@@ -104,9 +104,20 @@ const slides = [
       <div className="panel peach">
         <div className="hd"><Icon name="people" size={28} tone="green" /><h3>Per 1,000 bookings: a scenario, not an impact estimate</h3></div>
         <div className="bar1000" role="img" aria-label="650 attend now, 10 hypothetical, 340 remaining no-shows">
-          <div style={{ flex: 650, background: "#1f9d6b" }}>650 attend now</div>
+          <div style={{ flex: 650, background: "#1b84a3" }}>650 attend now</div>
           <div style={{ flex: 10, background: "#f5b72c" }} title="Hypothetical difference: 10" />
-          <div style={{ flex: 340, background: "#d64545" }}>340 remaining no-shows</div>
+          <div style={{ flex: 340, background: "#f26a21" }}>340 remaining no-shows</div>
+        </div>
+        <div className="dots" role="img" aria-label="100 dots, each one is 10 bookings: 65 attend, 1 is the hypothetical gain, 34 do not attend">
+          {Array.from({ length: 100 }, (_, n) => (
+            <i key={n} className={n < 65 ? "a" : n === 65 ? "h" : "x"} />
+          ))}
+        </div>
+        <div className="legend">
+          <span><i style={{ background: "#1b84a3" }} />Attend now</span>
+          <span><i style={{ background: "#f5b72c" }} />Hypothetical +10</span>
+          <span><i style={{ background: "#f26a21" }} />Remaining no-shows</span>
+          <span>Each dot is 10 bookings</span>
         </div>
         <p>
           At the reported 65% benchmark, 1,000 bookings imply approximately 650 attendees and 350 non-attendees. <b>Hypothetical:</b> if the
@@ -144,9 +155,9 @@ const slides = [
 
   // ---------------- Slide 3: questions, clarifying, plan ----------------
   <Fit key="s3">
-    <div className="grid2">
+    <div className="grid3">
       <div className="col">
-      <div className="panel">
+      <div className="panel" style={{ flex: 1 }}>
         <span className="kicker">C · Questions this raises</span>
         <div className="hd"><Icon name="question" size={28} tone="red" /><h3>What I would ask about the data itself</h3></div>
         <Q id="Q1" t="Why does attendance hold for about three days and then fall?" d="Is there a threshold in the parent’s week, or in what we send her?" />
@@ -158,23 +169,6 @@ const slides = [
         <Q id="Q7" t="Is long-gap attendance associated with worse outcomes at steps 5 and 6?" d="If downstream conversion is also lower, the segment may have higher commercial risk; causality would still be unproven." />
         <Q id="Q8" t="Is “almost never recovered” measured or assumed?" d="Do we try, and how soon after the missed session?" />
       </div>
-      <div className="panel" style={{ background: "#fff6df", borderColor: "transparent" }}>
-        <div className="hd"><Icon name="ban" size={28} tone="gold" /><h3>What I would not conclude yet</h3></div>
-        <p>
-          That the gap causes the drop. That the shape is a slope or a step. That shortening gaps would lift overall attendance by any
-          specified amount. That the day-6 bounce is real. Each of these needs one of the answers above.
-        </p>
-      </div>
-
-      <div className="panel peach">
-        <div className="hd"><Icon name="clock" size={28} /><h3>How I would get those answers in a week</h3></div>
-        <div className="weekgrid">
-          <div><span className="pill">Day 1 to 2</span>Ask analytics for the same table with booking counts, slot source and channel.</div>
-          <div><span className="pill">Day 2 to 3</span>Make a test booking and capture every message and when it arrives.</div>
-          <div><span className="pill">Day 3 to 5</span>Call 20 recent no-shows with one open question: “What happened on the day?”</div>
-          <div><span className="pill">Day 5</span>Re-read the data with counts and decide which pattern to investigate first.</div>
-        </div>
-      </div>
       </div>
       <div className="col">
       <div className="panel" style={{ flex: 1 }}>
@@ -184,11 +178,31 @@ const slides = [
         <Area icon="bars" tone="green" area="Size and noise" ask="How many bookings sit in each day? Over what period? Is the 65% the weighted average of these same rows?" why="Without bucket sizes and uncertainty intervals, a 57% versus 63% difference could reflect sampling variation; large sample sizes alone would not fix selection bias." />
         <Area icon="people" tone="blue" area="Who and why" ask="Who chose the slot: the parent, “first available”, or a counsellor? What are the splits by Meta or Google, campaign, child’s grade, city, weekday, time of day, device, first booking or repeat?" why="Slot availability versus preference changes which interventions are worth testing. Differences in channel, day or family characteristics may confound the aggregate pattern." />
         <Area icon="mail" tone="gold" area="Step 3 today" ask="What is sent between confirmation and session: how many touches, on which channel, when, from whom? Where does the join link live? Does anyone call before the demo?" why="This reveals whether messaging or joining friction is a credible mechanism, rather than assuming the funnel description fully specifies current operations." />
+      </div>
+      </div>
+      <div className="col">
+      <div className="panel">
         <Area icon="coin" tone="green" area="Steps 5 and 6" ask="Attended-to-enrolled by gap bucket. Counsellor connect rate and how soon the call happens. Revenue per booking by gap." why="The goal is enrolments, not attendance. A rise in attendance that converts worse would not help." />
         <Area icon="up" tone="red" area="Upstream (steps 1 and 2)" ask="Does booking conversion change when only far-away slots are shown? Which campaigns produce long-gap bookings?" why="The table starts after booking. A change that shortens the gap but costs bookings could lose more than it gains." />
         <Area icon="chat" tone="orange" area="The parent’s own words" ask="Why did recent no-shows not come? Has anyone asked?" why="A small qualitative sample can uncover mechanisms to test; it will not establish their prevalence." />
       </div>
+      <div className="panel" style={{ background: "#fff8dc", borderColor: "transparent" }}>
+        <div className="hd"><Icon name="ban" size={28} tone="gold" /><h3>What I would not conclude yet</h3></div>
+        <p>
+          That the gap causes the drop. That the shape is a slope or a step. That shortening gaps would lift overall attendance by any
+          specified amount. That the day-6 bounce is real. Each of these needs one of the answers above.
+        </p>
+      </div>
 
+      <div className="panel peach" style={{ flex: 1 }}>
+        <div className="hd"><Icon name="clock" size={28} /><h3>How I would get those answers in a week</h3></div>
+        <div className="weekgrid">
+          <div><span className="pill">Day 1 to 2</span>Ask analytics for the same table with booking counts, slot source and channel.</div>
+          <div><span className="pill">Day 2 to 3</span>Make a test booking and capture every message and when it arrives.</div>
+          <div><span className="pill">Day 3 to 5</span>Call 20 recent no-shows with one open question: “What happened on the day?”</div>
+          <div><span className="pill">Day 5</span>Re-read the data with counts and decide which pattern to investigate first.</div>
+        </div>
+      </div>
       </div>
     </div>
   </Fit>,
