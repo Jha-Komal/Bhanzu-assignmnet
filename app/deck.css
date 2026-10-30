@@ -389,3 +389,42 @@
 .fit .grid3 .col { gap: 12px; }
 .slide:has(.mm) { margin-block: 0 auto; }
 .mm-frame { min-height: 640px; }
+
+/* Part 4 v2: picture puzzles */
+.mm-figs { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.mm-fig { background: #fffaf3; border: 2px solid var(--line); border-radius: 18px; padding: 8px; display: grid; place-items: center; line-height: 0; }
+.mm-fig.q { width: 108px; height: 108px; border: 3px dashed var(--orange); color: var(--orange-d); font-size: 2.6em; font-weight: 700; line-height: 1; background: var(--peach); }
+.mm-opts.pics { grid-template-columns: repeat(auto-fit, minmax(96px, 1fr)); }
+.mm-opts.pics .mm-opt { display: grid; place-items: center; padding: 10px; line-height: 0; }
+.mm-center { align-items: center; text-align: center; padding-block: 44px; }
+.mm-center h3 { font-size: 1.6em; }
+.mm-center p { max-width: 46ch; }
+.mm-hero { height: 180px; }
+.mm-age { border-top: 1px solid var(--line); padding-top: 12px; display: flex; flex-direction: column; gap: 8px; }
+.mm-why { display: flex; align-items: center; gap: 16px; }
+.mm-why p { margin: 2px 0 0; }
+
+/* Part 4 slide 1 v2 */
+.fit .p4hero { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 12px; }
+@media (max-width: 1000px) { .fit .p4hero { grid-template-columns: minmax(0, 1fr); } }
+.fit .p4intro { position: relative; background: linear-gradient(135deg, var(--peach), #fff); border-radius: 22px; padding: 22px 26px; display: flex; flex-direction: column; gap: 12px; justify-content: center; overflow: hidden; }
+.fit .p4intro h1 { font-size: clamp(30px, 3.4vw, 52px); }
+.fit .p4intro .lede { font-size: 1.2em; color: var(--ink-2); max-width: 44ch; }
+.fit .p4sym { height: 46px; margin-top: 4px; }
+.fit .p4try { position: relative; background: #fff; border: 2px solid var(--orange-l); border-radius: 22px; padding: 18px 20px; display: flex; flex-direction: column; gap: 8px; overflow: hidden; }
+.fit .p4try .p4kid { position: absolute; right: 16px; top: 8px; height: 82px; }
+.fit .p4try .hd { flex-wrap: wrap; padding-right: 80px; }
+.fit .p4try > p { color: var(--ink-2); }
+@media (max-width: 700px) { .fit .p4try .p4kid { display: none; } .fit .p4try .hd { padding-right: 0; } }
+.fit .p4flow { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; position: relative; }
+@media (max-width: 1100px) { .fit .p4flow { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .fit .p4flow { grid-template-columns: minmax(0, 1fr); } }
+.fit .pnode { display: flex; flex-direction: column; gap: 6px; background: #fffaf3; border: 1.5px solid var(--line); border-radius: 18px; padding: 12px 14px; position: relative; }
+.fit .pnode.primary { border: 2px solid var(--orange); background: var(--peach); }
+.fit .pnode > span { font-weight: 700; font-size: 0.85em; color: var(--orange-d); letter-spacing: 0.05em; }
+.fit .pnode > b { font-size: 1.1em; }
+.fit .pnode > p { color: var(--ink-2); font-size: 0.95em; }
+.fit .scope { border-radius: 16px; padding: 10px 14px; display: flex; flex-direction: column; gap: 4px; }
+.fit .scope.ok { background: #e6f4f8; }
+.fit .scope.dep { background: #fff3da; }
+.fit .scope ul { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 3px; }

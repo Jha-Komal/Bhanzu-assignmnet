@@ -14,9 +14,9 @@ npm install
 npm run dev      # http://localhost:3000
 ```
 
-## Part 4 prototype: the maths mystery
+## Part 4 prototype: the maths mystery (picture puzzles)
 
-Switch between Parent, Child, Teacher and Counsellor at the top of slide 2. The parent sees the booking confirmation with an optional invitation, the child picks Explorer, Detective or Mastermind and solves two puzzles, the teacher sees the responses and a simulated explanation and can record an observation, and the counsellor sees pre-demo attempts and teacher observations separately. "Reset demo" starts again.
+Switch between Parent, Child, Teacher and Counsellor at the top of slide 2. The parent sees the booking confirmation with an optional invitation, the child gets an age-matched picture puzzle (6–8, 9–11 or 12–14) with an optional harder second one, the teacher sees the responses and a simulated explanation and can record an observation, and the counsellor sees pre-demo attempts and teacher observations separately. "Reset demo" starts again.
 
 Everything is simulated in the browser (localStorage). No real Bhanzu booking, messages, teacher integration or data collection.
 
