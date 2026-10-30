@@ -109,3 +109,45 @@ export function Donut() {
     </div>
   );
 }
+
+// Part 2: the same eight rates, grouped into zones (holds, drops, rebound, lowest).
+export function ZoneChart() {
+  const T = 44;
+  const B = 210;
+  const py = (v: number) => B - ((v - 50) * (B - T)) / 20;
+  const Zone = ({ a, b, fill, label, col }: { a: number; b: number; fill: string; label: string; col: string }) => {
+    const x0 = px(a) - 34;
+    const x1 = px(b) + 34;
+    return (
+      <g>
+        <rect x={x0} y={T} width={x1 - x0} height={B - T} fill={fill} rx={8} />
+        <text x={(x0 + x1) / 2} y={T - 14} textAnchor="middle" style={{ fill: col, fontWeight: 700, fontSize: 17 }}>{label}</text>
+      </g>
+    );
+  };
+  return (
+    <div className="chart">
+      <svg viewBox="0 0 760 262" role="img" aria-label="Attendance by day grouped into three zones: holds, drops, and the unexplained day 6">
+        {[50, 55, 60, 65, 70].map((v) => (
+          <g key={v}>
+            <line x1={L} x2={R} y1={py(v)} y2={py(v)} stroke="#eee7e0" />
+            <text x={L - 8} y={py(v) + 4} textAnchor="end">{v}%</text>
+          </g>
+        ))}
+        <Zone a={0} b={3} fill="#dff1f6" label="66 → 62%" col="#12677f" />
+        <Zone a={4} b={5} fill="#ffe3cc" label="57% both days" col="#a8420b" />
+        <Zone a={6} b={6} fill="#fff3c9" label="Rebound" col="#8a5a00" />
+        <Zone a={7} b={7} fill="#ffe3cc" label="Lowest" col="#a8420b" />
+        <polyline points={ATTEND.map((v, i) => `${px(i)},${py(v)}`).join(" ")} fill="none" stroke={INK} strokeWidth={3} strokeLinejoin="round" strokeLinecap="round" />
+        {ATTEND.map((v, i) => (
+          <g key={i}>
+            <circle cx={px(i)} cy={py(v)} r={6} fill="#fff" stroke={INK} strokeWidth={3} />
+            <text className="v" x={px(i)} y={py(v) - 14} textAnchor="middle">{v}</text>
+            <text x={px(i)} y={B + 20} textAnchor="middle">{LABELS[i]}</text>
+          </g>
+        ))}
+        <text x={(L + R) / 2} y={B + 44} textAnchor="middle">days between booking and session</text>
+      </svg>
+    </div>
+  );
+}

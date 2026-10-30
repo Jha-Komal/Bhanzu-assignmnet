@@ -186,3 +186,28 @@
 .fit .steps6 { flex: 1; grid-auto-rows: 1fr; }
 .fit .fstep { justify-content: center; }
 .fit .dots { grid-template-columns: repeat(25, minmax(0, 1fr)); gap: 5px; flex: 0 0 auto; }
+
+/* ---------- Part 2 pieces ---------- */
+.fit .tl { display: flex; flex-direction: column; gap: 0; position: relative; }
+.fit .tl-item { display: grid; grid-template-columns: 38px minmax(0, 1fr); gap: 12px; padding-bottom: 12px; position: relative; }
+.fit .tl-item:not(:last-child)::before { content: ""; position: absolute; left: 18px; top: 40px; bottom: 0; width: 2px; background: var(--line); }
+.fit .tl-item .when { font-weight: 700; color: var(--orange-d); font-size: 0.9em; letter-spacing: 0.02em; }
+.fit .tl-item .us { color: var(--ink-3); font-size: 0.92em; margin-top: 2px; }
+.fit .tl-item.hot b { color: var(--ink); }
+.fit .tl-item.hot .when { color: #a8420b; }
+.fit .forces2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; flex: 1; grid-auto-rows: 1fr; }
+@media (max-width: 700px) { .fit .forces2 { grid-template-columns: minmax(0, 1fr); } }
+.fit .force2 { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 10px; background: #fffaf3; border: 1.5px solid var(--line); border-radius: 14px; padding: 10px 12px; align-content: start; }
+.fit .force2 span.d { display: block; color: var(--ink-3); font-size: 0.93em; margin-top: 2px; }
+.fit .force2.wide { grid-column: 1 / -1; }
+.fit .verdict-pill { align-self: flex-start; font-weight: 700; font-size: 0.85em; padding: 3px 12px; border-radius: 99px; letter-spacing: 0.04em; }
+.fit .verdict-pill.p { background: #fff3c9; color: #8a5a00; }
+.fit .verdict-pill.x { background: #ffe3cc; color: #a8420b; }
+.fit .pcard { display: grid; grid-template-columns: 38px minmax(0, 1fr); gap: 12px; background: #fffaf3; border: 1.5px solid var(--line); border-radius: 16px; padding: 12px 14px; }
+.fit .pcard .num { width: 34px; height: 34px; border-radius: 50%; background: var(--orange); color: #fff; font-weight: 700; display: grid; place-items: center; }
+.fit .pcard dl { margin: 6px 0 0; display: grid; gap: 4px; }
+.fit .pcard dt { font-weight: 700; color: var(--orange-d); font-size: 0.85em; text-transform: uppercase; letter-spacing: 0.05em; }
+.fit .pcard dd { margin: 0 0 2px; color: var(--ink-2); }
+.fit .acard { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 12px; align-items: start; background: #fffaf3; border: 1.5px solid var(--line); border-radius: 16px; padding: 11px 14px; }
+.fit .acard .how { color: var(--ink-2); margin-top: 3px; }
+.fit .acard .how b { color: var(--orange-d); }
