@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Doodle } from "@/components/Doodle";
 
 export default function Home() {
   return (
@@ -22,10 +23,11 @@ export default function Home() {
           <div className="hero-art" aria-hidden>
             <div className="blob" style={{ width: 300, height: 300, background: "var(--orange-l)", opacity: 0.45, right: 10, top: 10 }} />
             <div className="blob" style={{ width: 170, height: 170, background: "var(--blue)", opacity: 0.25, left: 20, bottom: 10 }} />
-            <div className="floaty" style={{ left: 30, top: 40 }}>47 × 11 = ?</div>
-            <div className="floaty" style={{ right: 20, top: 120, animationDelay: "1s" }}>🔒 Piece 3 of 5</div>
-            <div className="floaty" style={{ left: 70, bottom: 60, animationDelay: "2s" }}>🔥 3 in a row</div>
-            <div className="floaty" style={{ right: 60, bottom: 20, animationDelay: "1.5s", fontSize: 18 }}>Aarav's Math Mission</div>
+            <Doodle name="child" className="kid" />
+            <div className="floaty" style={{ left: 10, top: 20 }}>47 × 11 = ?</div>
+            <div className="floaty" style={{ right: 0, top: 60, animationDelay: "1s" }}>🔒 Piece 3 of 5</div>
+            <div className="floaty" style={{ left: -10, bottom: 40, animationDelay: "2s" }}>🔥 3 in a row</div>
+            <div className="floaty" style={{ right: -10, bottom: 20, animationDelay: "1.5s", fontSize: 18 }}>Aarav's Math Mission</div>
           </div>
         </div>
       </section>

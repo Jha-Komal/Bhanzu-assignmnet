@@ -30,6 +30,10 @@ const P: Record<string, string> = {
   scale: "M12 4v16 M7 20h10 M4 8h16 M4 8l-2 6a3 3 0 0 0 6 0z M20 8l-2 6a3 3 0 0 0 4 0z",
   check: "M4 12l5 5L20 6",
   shield: "M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z",
+  puzzle: "M5 4h5a2 2 0 1 1 4 0h5v5a2 2 0 1 0 0 4v7H5v-7a2 2 0 1 0 0-4z",
+  refresh: "M20 12a8 8 0 1 1-2.3-5.7 M20 4v5h-5",
+  cross: "M6 6l12 12 M18 6L6 18",
+  arrow: "M4 12h16 M14 6l6 6-6 6",
   flag: "M5 21V4 M5 4h12l-2 4 2 4H5",
 };
 

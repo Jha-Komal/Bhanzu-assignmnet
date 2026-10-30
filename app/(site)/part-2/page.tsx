@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Deck } from "@/components/Deck";
 import { Icon } from "@/components/Icon";
+import { Doodle, Spot } from "@/components/Doodle";
 import { ZoneChart } from "@/components/part1/Charts";
 
 export const metadata: Metadata = { title: "Part 2 · Diagnose the drop · Bhanzu Growth PM case study" };
@@ -27,6 +28,7 @@ const Force = ({ icon, tone, t, d, wide }: { icon: string; tone: Tone; t: string
       <b>{t}</b>
       <span className="d">{d}</span>
     </div>
+    {wide && <Doodle name="symbols" className="wide-art" />}
   </div>
 );
 
@@ -198,6 +200,7 @@ const slides = [
             <b>Evidence boundary.</b> No behavioural cause has been established. These hypotheses guide what to investigate—not what to claim
             as proven.
           </div>
+          <Spot name="bulb" />
         </div>
       </div>
     </div>

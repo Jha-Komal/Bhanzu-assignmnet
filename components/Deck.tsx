@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { Doodle } from "./Doodle";
 import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 
 type Props = {
@@ -87,9 +88,13 @@ export function Deck({ slides, prev, next }: Props) {
         ) : (
           <button className="btn ghost" onClick={() => go(i - 1)} disabled={i === 0}>← Back</button>
         )}
-        <span className="deck-count">
-          {i + 1} <span>/ {slides.length}</span>
-        </span>
+        <div className="mid">
+          <Doodle name="symbols" />
+          <span className="deck-count">
+            {i + 1} <span>/ {slides.length}</span>
+          </span>
+          <Doodle name="pencil" />
+        </div>
         {i === last && next ? (
           <Link className="btn" href={next.href}>{next.label} →</Link>
         ) : (

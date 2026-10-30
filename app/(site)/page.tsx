@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Doodle } from "@/components/Doodle";
 
 const PARTS = [
   ["1", "Read the data", "What the attendance numbers show, what makes sense, and what I would ask.", "/part-1"],
@@ -11,6 +12,13 @@ export default function Cover() {
   return (
     <section className="cover">
       <div className="wrap">
+        <div className="cover-art" aria-hidden>
+          <Doodle name="bulb" className="l" />
+          <Doodle name="child" className="c" />
+          <Doodle name="books" className="b" />
+          <Doodle name="stars" className="s" />
+          <Doodle name="pencil" className="p" />
+        </div>
         <div className="stack">
           <span className="eyebrow">Growth PM case study · Bhanzu</span>
           <h1 style={{ maxWidth: "16ch" }}>Why do parents book a free demo and not show up?</h1>

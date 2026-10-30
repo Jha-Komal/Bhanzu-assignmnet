@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Deck } from "@/components/Deck";
 import { Icon } from "@/components/Icon";
+import { Spot } from "@/components/Doodle";
 import { Chart1, Chart2, Donut } from "@/components/part1/Charts";
 
 export const metadata: Metadata = { title: "Part 1 · Read the data · Bhanzu Growth PM case study" };
@@ -51,6 +52,7 @@ const slides = [
           same-day bookings. Before prioritising a fix, I need booking counts, gap definitions, slot availability, existing communications and
           reasons for missing sessions.
         </p>
+        <Spot name="child" />
       </div>
 
       <div className="panel">
@@ -77,6 +79,7 @@ const slides = [
           <li><b>Spread:</b> 11 points from best to worst. No-shows go from 34% to 45%, which is 32% more no-shows per booking. The absolute spread is the number that matters for the whole funnel.</li>
         </ul>
         <p className="small">I would not fit or compare trend models yet. With only eight percentages and no booking counts, I cannot assess precision, bucket reliability or whether the apparent day-4 step is meaningful.</p>
+        <Spot name="books" side="left" />
       </div>
     </div>
   </Fit>,
@@ -202,6 +205,7 @@ const slides = [
           <div><span className="pill">Day 3 to 5</span>Call 20 recent no-shows with one open question: “What happened on the day?”</div>
           <div><span className="pill">Day 5</span>Re-read the data with counts and decide which pattern to investigate first.</div>
         </div>
+        <Spot name="stars" />
       </div>
       </div>
     </div>
