@@ -4,22 +4,20 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const LINKS = [
-  { href: "/", label: "Home" },
+  { href: "/part-4", label: "Overview" },
   { href: "/pass", label: "Mission Pass" },
   { href: "/messages", label: "Parent messages" },
   { href: "/counsellor", label: "Counsellor view" },
 ];
 
-export function Header() {
+export function ProductNav() {
   const path = usePathname();
-  const active = (href: string) => (href === "/" ? path === "/" : path.startsWith(href));
+  const active = (href: string) => (href === "/part-4" ? path === href : path.startsWith(href));
   return (
-    <header className="header">
+    <div className="subnav">
       <div className="wrap">
-        <Link href="/" className="brand" aria-label="Home">
-          <i aria-hidden /> bhanzu
-        </Link>
-        <nav className="nav" aria-label="Main">
+        <span className="tiny muted">Part 4 prototype</span>
+        <nav className="nav" aria-label="Prototype">
           {LINKS.map((l) => (
             <Link key={l.href} href={l.href} aria-current={active(l.href) ? "page" : undefined}>
               {l.label}
@@ -27,6 +25,6 @@ export function Header() {
           ))}
         </nav>
       </div>
-    </header>
+    </div>
   );
 }

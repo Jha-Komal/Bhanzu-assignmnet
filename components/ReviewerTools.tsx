@@ -36,7 +36,7 @@ export function ReviewerTools() {
             onClick={() => {
               reset();
               setOpen(false);
-              router.push("/");
+              router.push("/part-4");
             }}
           >
             Start over
