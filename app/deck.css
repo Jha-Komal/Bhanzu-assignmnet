@@ -14,7 +14,7 @@
 .deck-bar button.done { background: var(--orange-l); }
 .deck-bar button.now { background: var(--orange); }
 .deck-body { flex: 1; overflow-y: auto; display: flex; padding: 0 max(16px, env(safe-area-inset-left)); }
-.slide { width: 100%; max-width: 1040px; margin: auto; padding-block: 28px; display: flex; flex-direction: column; gap: 20px; }
+.slide { width: 100%; max-width: 1260px; margin: auto; padding-block: 14px; display: flex; flex-direction: column; gap: 20px; }
 .slide.enter { animation: slideIn 0.35s ease both; }
 @keyframes slideIn { from { opacity: 0; transform: translateX(18px); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) { .slide.enter { animation: none; } html { scroll-behavior: auto; } }
@@ -88,3 +88,53 @@
 .partcard h3 { font-size: 19px; }
 .partcard p { font-size: 14.5px; color: var(--ink-3); }
 .partcard.soon { opacity: 0.7; }
+
+/* ---------- compact four-quadrant slides (Part 1 onwards) ---------- */
+.fit { width: 100%; font-size: clamp(12px, 0.92vw, 15.5px); line-height: 1.4; }
+.fit .grid4 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; align-items: stretch; }
+.fit .grid2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+@media (max-width: 900px) { .fit .grid4, .fit .grid2 { grid-template-columns: minmax(0, 1fr); } }
+.fit .panel { background: #fff; border: 1.5px solid var(--line); border-radius: 18px; padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.fit .panel.peach { background: var(--peach); border-color: transparent; }
+.fit .panel.sand { background: #faf6f2; }
+.fit .panel h3 { font-size: 1.1em; }
+.fit .panel h1 { font-size: clamp(24px, 2.7vw, 38px); }
+.fit .panel .kicker { font-size: 0.78em; }
+.fit .panel p, .fit .panel li { font-size: 1em; color: var(--ink-2); }
+.fit .panel ul { gap: 4px; padding-left: 18px; }
+.fit .hd { display: flex; align-items: center; gap: 10px; }
+.fit .hd h3 { flex: 1; }
+.fit .small { font-size: 0.9em; color: var(--ink-3); }
+.icon { display: inline-grid; place-items: center; border-radius: 12px; flex: none; }
+.fit .chart text { font-size: 19px; }
+.fit .chart text.v { font-size: 21px; }
+.fit .legend { font-size: 0.88em; margin-top: 2px; }
+.fit .steps6 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.fit .fstep { font-size: 0.92em; padding: 8px 10px; gap: 4px; align-items: flex-start; }
+.fit .fstep.in { border-width: 2px; }
+.fit .bar1000 { height: 44px; }
+.fit .bar1000 div { font-size: 0.82em; white-space: normal; text-align: center; line-height: 1.1; padding: 0 4px; }
+.fit .tw { border-radius: 14px; }
+.fit .tw table { font-size: 0.92em; line-height: 1.38; }
+.fit .tw th, .fit .tw td { padding: 7px 10px; }
+.fit .tw th { font-size: 0.78em; }
+.fit .tw td:first-child { width: 1%; }
+.fit .row-area { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 10px; padding-block: 7px; border-top: 1px solid var(--line); }
+.fit .row-area:first-of-type { border-top: 0; padding-top: 0; }
+.fit .row-area b { color: var(--ink); }
+.fit .row-area .why { color: var(--ink-3); font-size: 0.93em; margin-top: 1px; }
+.fit .qline { display: grid; grid-template-columns: 30px minmax(0, 1fr); gap: 8px; padding-block: 5px; border-top: 1px solid var(--line); }
+.fit .qline:first-of-type { border-top: 0; padding-top: 0; }
+.fit .qline .qid { width: 28px; height: 28px; font-size: 0.78em; }
+.fit .qline .qid, .fit .qcard .qid { border-radius: 50%; background: var(--peach); color: var(--orange-d); font-weight: 700; display: grid; place-items: center; }
+.fit .qline p { margin-top: 1px; color: var(--ink-3); font-size: 0.93em; }
+.fit .callout { padding: 10px 14px; font-size: 0.95em; }
+.fit .weekgrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.fit .weekgrid > div { background: #faf6f2; border-radius: 12px; padding: 8px 10px; display: flex; flex-direction: column; gap: 3px; }
+.deck-bar { padding-top: 8px; }
+.deck-foot { padding-block: 8px; }
+.deck-foot .btn { padding: 7px 20px; font-size: 15px; box-shadow: 0 3px 0 var(--orange-d); }
+.donutwrap { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 14px; align-items: center; }
+@media (max-width: 520px) { .donutwrap { grid-template-columns: minmax(0, 1fr); } .donutwrap > div:first-child { max-width: 120px; } }
+
+.fit .col { display: flex; flex-direction: column; gap: 12px; min-width: 0; }

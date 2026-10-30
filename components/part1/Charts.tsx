@@ -18,7 +18,7 @@ export function Chart1() {
   const py = (v: number) => B - (v * (B - T)) / 100;
   return (
     <div className="chart">
-      <svg viewBox="0 0 760 330" role="img" aria-label="Stacked bars of attended and no-show percentages for days 0 to 7, on a full 0 to 100 scale">
+      <svg viewBox="0 0 760 312" role="img" aria-label="Stacked bars of attended and no-show percentages for days 0 to 7, on a full 0 to 100 scale">
         {[0, 25, 50, 75, 100].map((v) => (
           <g key={v}>
             <line x1={L} x2={R} y1={py(v)} y2={py(v)} stroke="#eee7e0" />
@@ -38,7 +38,7 @@ export function Chart1() {
           );
         })}
         <line x1={L} x2={R} y1={py(65)} y2={py(65)} stroke={INK} strokeWidth={2} strokeDasharray="5 5" />
-        <text x={(L + R) / 2} y={B + 46} textAnchor="middle">days between booking and session</text>
+        <text x={(L + R) / 2} y={B + 40} textAnchor="middle">days between booking and session</text>
       </svg>
       <div className="legend">
         <span><i style={{ background: GREEN }} />Attended</span>
@@ -56,13 +56,13 @@ export function Chart2() {
   const pts = ATTEND.map((v, i) => `${px(i)},${py(v)}`).join(" ");
   const Mark = ({ n, x, y }: { n: number; x: number; y: number }) => (
     <g>
-      <circle cx={x} cy={y} r={12} fill={ORANGE} />
-      <text x={x} y={y + 4} textAnchor="middle" style={{ fill: "#fff", fontWeight: 700, fontSize: 12.5 }}>{n}</text>
+      <circle cx={x} cy={y} r={15} fill={ORANGE} />
+      <text x={x} y={y + 6} textAnchor="middle" style={{ fill: "#fff", fontWeight: 700, fontSize: 17 }}>{n}</text>
     </g>
   );
   return (
     <div className="chart">
-      <svg viewBox="0 0 760 330" role="img" aria-label="Line chart of attendance by day, zoomed to 50 to 70 percent, with numbered pattern markers">
+      <svg viewBox="0 0 760 312" role="img" aria-label="Line chart of attendance by day, zoomed to 50 to 70 percent, with numbered pattern markers">
         {[50, 55, 60, 65, 70].map((v) => (
           <g key={v}>
             <line x1={L} x2={R} y1={py(v)} y2={py(v)} stroke="#eee7e0" />
@@ -70,7 +70,6 @@ export function Chart2() {
           </g>
         ))}
         <line x1={L} x2={R} y1={py(65)} y2={py(65)} stroke="#746558" strokeDasharray="4 5" />
-        <text x={R} y={py(65) - 6} textAnchor="end">65% benchmark</text>
         <rect x={px(4) - 30} y={T} width={px(5) - px(4) + 60} height={B - T} fill="#fde4e4" opacity={0.8} rx={8} />
         <polyline points={pts} fill="none" stroke={INK} strokeWidth={3} strokeLinejoin="round" strokeLinecap="round" />
         {ATTEND.map((v, i) => (
@@ -83,11 +82,28 @@ export function Chart2() {
         <Mark n={1} x={px(0) + 34} y={py(66) + 30} />
         <Mark n={2} x={(px(3) + px(4)) / 2 + 22} y={py(59.5) - 22} />
         <Mark n={3} x={(px(0) + px(1)) / 2} y={py(66) - 34} />
-        <Mark n={4} x={px(6) + 26} y={py(63) - 26} />
+        <Mark n={4} x={px(6) + 40} y={py(63) - 30} />
         <Mark n={5} x={px(7) + 4} y={py(55) + 30} />
         <Mark n={7} x={px(5) + 36} y={py(65) - 18} />
-        <text x={(L + R) / 2} y={B + 46} textAnchor="middle">days between booking and session</text>
+        <text x={(L + R) / 2} y={B + 40} textAnchor="middle">days between booking and session</text>
       </svg>
+      <div className="legend">
+        <span><i style={{ background: "transparent", borderTop: "2px dashed #746558", borderRadius: 0, height: 0, width: 16, verticalAlign: 4 }} />65% benchmark</span>
+        <span><i style={{ background: "#fde4e4", border: "1px solid #d64545" }} />Days 4 and 5, the biggest single move</span>
+      </div>
     </div>
+  );
+}
+
+// The 66 / 34 split for same-day bookings, as a ring.
+export function Donut() {
+  const C = 2 * Math.PI * 40;
+  return (
+    <svg viewBox="0 0 120 120" role="img" aria-label="Same-day bookings: 66% attend, 34% do not" style={{ width: "100%", height: "auto" }}>
+      <circle cx="60" cy="60" r="40" fill="none" stroke={RED} strokeWidth="16" />
+      <circle cx="60" cy="60" r="40" fill="none" stroke={GREEN} strokeWidth="16" strokeDasharray={`${C * 0.66} ${C}`} transform="rotate(-90 60 60)" strokeLinecap="butt" />
+      <text x="60" y="58" textAnchor="middle" style={{ fontSize: 22, fontWeight: 700, fill: INK, fontFamily: "var(--font)" }}>34%</text>
+      <text x="60" y="74" textAnchor="middle" style={{ fontSize: 9.5, fontWeight: 700, fill: "#746558", fontFamily: "var(--font)" }}>no-show</text>
+    </svg>
   );
 }
