@@ -7,7 +7,7 @@ const PARTS = [
   { href: "/part-1", label: "1 Read the data", match: ["/part-1"] },
   { href: "/part-2", label: "2 Diagnose the drop", match: ["/part-2"] },
   { href: "/part-3", label: "3 Propose ideas", match: ["/part-3"] },
-  { href: "/part-4", label: "4 The product", match: ["/part-4", "/book", "/booked", "/pass", "/messages", "/counsellor"] },
+  { href: "/part-4", label: "4 Micro-experience", match: ["/part-4"] },
 ];
 
 export function SiteHeader() {

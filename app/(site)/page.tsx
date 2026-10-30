@@ -5,7 +5,7 @@ const PARTS = [
   ["1", "Read the data", "What the attendance numbers show, what makes sense, and what I would ask.", "/part-1"],
   ["2", "Diagnose the drop", "Why parents who book do not show up, and how I would check each belief.", "/part-2"],
   ["3", "Propose ideas", "Prioritised ideas to lift attendance from 65% towards 75 to 80%.", "/part-3"],
-  ["4", "The product", "A working prototype: the Mission Pass, between booking and the demo.", "/part-4"],
+  ["4", "The micro-experience", "A working prototype: a child’s maths mystery between booking and the demo.", "/part-4"],
 ];
 
 export default function Cover() {

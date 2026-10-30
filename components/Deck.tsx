@@ -36,6 +36,15 @@ export function Deck({ slides, prev, next }: Props) {
   }, [slides.length]);
 
   useEffect(() => {
+    const onHash = () => {
+      const n = parseInt(window.location.hash.slice(1), 10);
+      if (n >= 1 && n <= slides.length) setI(n - 1);
+    };
+    window.addEventListener("hashchange", onHash);
+    return () => window.removeEventListener("hashchange", onHash);
+  }, [slides.length]);
+
+  useEffect(() => {
     body.current?.scrollTo({ top: 0 });
   }, [i]);
 
